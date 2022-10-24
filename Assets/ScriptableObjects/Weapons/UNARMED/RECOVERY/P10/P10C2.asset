@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f218bb52b74b0cd41bb21aecddaf72eb, type: 3}
+  m_Name: P10C2
+  m_EditorClassIdentifier: 
+  startupFrames: 0
+  attackFrames: 3
+  baseDamage: 15
+  variableForce: 40
+  fixedForce: 55
+  hitboxes:
+  - xOffset: 50
+    yOffset: -47
+    width: 34
+    height: 106
+  - xOffset: 37
+    yOffset: -81
+    width: 36
+    height: 112
+  - xOffset: 23
+    yOffset: -120
+    width: 34
+    height: 52
+  frameChanges: []

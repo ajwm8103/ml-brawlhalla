@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f218bb52b74b0cd41bb21aecddaf72eb, type: 3}
+  m_Name: P3C1
+  m_EditorClassIdentifier: 
+  startupFrames: 6
+  attackFrames: 3
+  baseDamage: 3
+  variableForce: 0
+  fixedForce: 26
+  hitboxes:
+  - xOffset: 61
+    yOffset: -2
+    width: 88
+    height: 130
+  frameChanges:
+  - frame: 0
+    casterPositionChange:
+      active: 0
+      x: 0
+      y: 0
+    casterVelocitySet:
+      active: 0
+      magnitude: 0
+      directionDeg: 0
+    casterVelocitySetXY:
+      activeX: 0
+      magnitudeX: 0
+      activeY: 0
+      magnitudeY: 0
+    casterVelocityDampXY:
+      activeX: 0
+      dampX: 0
+      activeY: 0
+      dampY: 0
+    dealtPositionTarget:
+      active: 1
+      xOffset: 90
+      yOffset: -20
+    hurtboxPositionChange:
+      active: 1
+      xOffset: 24
+      yOffset: 0
+      width: 290
+      height: 320
+  - frame: 3
+    casterPositionChange:
+      active: 0
+      x: 0
+      y: 0
+    casterVelocitySet:
+      active: 0
+      magnitude: 0
+      directionDeg: 0
+    casterVelocitySetXY:
+      activeX: 0
+      magnitudeX: 0
+      activeY: 0
+      magnitudeY: 0
+    casterVelocityDampXY:
+      activeX: 0
+      dampX: 0
+      activeY: 0
+      dampY: 0
+    dealtPositionTarget:
+      active: 1
+      xOffset: 90
+      yOffset: -20
+    hurtboxPositionChange:
+      active: 1
+      xOffset: 27
+      yOffset: -30
+      width: 290
+      height: 320
+  - frame: 6
+    casterPositionChange:
+      active: 0
+      x: 0
+      y: 0
+    casterVelocitySet:
+      active: 0
+      magnitude: 0
+      directionDeg: 0
+    casterVelocitySetXY:
+      activeX: 0
+      magnitudeX: 0
+      activeY: 0
+      magnitudeY: 0
+    casterVelocityDampXY:
+      activeX: 0
+      dampX: 0
+      activeY: 0
+      dampY: 0
+    dealtPositionTarget:
+      active: 1
+      xOffset: 110
+      yOffset: -40
+    hurtboxPositionChange:
+      active: 1
+      xOffset: 0
+      yOffset: 0
+      width: 290
+      height: 320
+  - frame: 9
+    casterPositionChange:
+      active: 0
+      x: 0
+      y: 0
+    casterVelocitySet:
+      active: 0
+      magnitude: 0
+      directionDeg: 0
+    casterVelocitySetXY:
+      activeX: 0
+      magnitudeX: 0
+      activeY: 0
+      magnitudeY: 0
+    casterVelocityDampXY:
+      activeX: 0
+      dampX: 0
+      activeY: 0
+      dampY: 0
+    dealtPositionTarget:
+      active: 1
+      xOffset: 110
+      yOffset: -40
+    hurtboxPositionChange:
+      active: 1
+      xOffset: 30
+      yOffset: 0
+      width: 290
+      height: 320

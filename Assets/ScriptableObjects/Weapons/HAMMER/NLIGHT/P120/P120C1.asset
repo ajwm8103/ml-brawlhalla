@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f218bb52b74b0cd41bb21aecddaf72eb, type: 3}
+  m_Name: P120C1
+  m_EditorClassIdentifier: 
+  startupFrames: 9
+  attackFrames: 3
+  baseDamage: 7
+  variableForce: 45
+  fixedForce: 65
+  hitboxes:
+  - xOffset: 118
+    yOffset: 0
+    width: 136
+    height: 76
+  - xOffset: 189
+    yOffset: 0
+    width: 90
+    height: 100
+  - xOffset: 228
+    yOffset: -57
+    width: 60
+    height: 156
+  - xOffset: 249
+    yOffset: 3
+    width: 68
+    height: 166

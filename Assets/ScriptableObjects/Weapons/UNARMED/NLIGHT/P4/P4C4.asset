@@ -1,0 +1,241 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f218bb52b74b0cd41bb21aecddaf72eb, type: 3}
+  m_Name: P4C4
+  m_EditorClassIdentifier: 
+  startupFrames: 2
+  attackFrames: 5
+  baseDamage: 5
+  variableForce: 31
+  fixedForce: 52
+  hitboxes:
+  - xOffset: 39
+    yOffset: 10
+    width: 116
+    height: 62
+  frameChanges:
+  - frame: 2
+    casterPositionChange:
+      active: 0
+      x: 0
+      y: 0
+    casterVelocitySet:
+      active: 0
+      magnitude: 0
+      directionDeg: 0
+    casterVelocitySetXY:
+      activeX: 0
+      magnitudeX: 0
+      activeY: 0
+      magnitudeY: 0
+    dealtPositionTarget:
+      active: 0
+      xOffset: 0
+      yOffset: 0
+    hurtboxPositionChange:
+      active: 1
+      xOffset: -62
+      yOffset: 0
+      width: 290
+      height: 320
+  - frame: 8
+    casterPositionChange:
+      active: 0
+      x: 0
+      y: 0
+    casterVelocitySet:
+      active: 0
+      magnitude: 0
+      directionDeg: 0
+    casterVelocitySetXY:
+      activeX: 1
+      magnitudeX: 0
+      activeY: 0
+      magnitudeY: 0
+    dealtPositionTarget:
+      active: 0
+      xOffset: 0
+      yOffset: 0
+    hurtboxPositionChange:
+      active: 1
+      xOffset: -54
+      yOffset: 0
+      width: 290
+      height: 320
+  - frame: 10
+    casterPositionChange:
+      active: 0
+      x: 0
+      y: 0
+    casterVelocitySet:
+      active: 0
+      magnitude: 0
+      directionDeg: 0
+    casterVelocitySetXY:
+      activeX: 0
+      magnitudeX: 0
+      activeY: 0
+      magnitudeY: 0
+    dealtPositionTarget:
+      active: 0
+      xOffset: 0
+      yOffset: 0
+    hurtboxPositionChange:
+      active: 1
+      xOffset: -50
+      yOffset: 0
+      width: 290
+      height: 320
+  - frame: 12
+    casterPositionChange:
+      active: 0
+      x: 0
+      y: 0
+    casterVelocitySet:
+      active: 0
+      magnitude: 0
+      directionDeg: 0
+    casterVelocitySetXY:
+      activeX: 0
+      magnitudeX: 0
+      activeY: 0
+      magnitudeY: 0
+    dealtPositionTarget:
+      active: 0
+      xOffset: 0
+      yOffset: 0
+    hurtboxPositionChange:
+      active: 1
+      xOffset: -46
+      yOffset: 0
+      width: 290
+      height: 320
+  - frame: 14
+    casterPositionChange:
+      active: 0
+      x: 0
+      y: 0
+    casterVelocitySet:
+      active: 0
+      magnitude: 0
+      directionDeg: 0
+    casterVelocitySetXY:
+      activeX: 0
+      magnitudeX: 0
+      activeY: 0
+      magnitudeY: 0
+    dealtPositionTarget:
+      active: 0
+      xOffset: 0
+      yOffset: 0
+    hurtboxPositionChange:
+      active: 1
+      xOffset: -45
+      yOffset: 0
+      width: 290
+      height: 320
+  - frame: 15
+    casterPositionChange:
+      active: 0
+      x: 0
+      y: 0
+    casterVelocitySet:
+      active: 0
+      magnitude: 0
+      directionDeg: 0
+    casterVelocitySetXY:
+      activeX: 0
+      magnitudeX: 0
+      activeY: 0
+      magnitudeY: 0
+    dealtPositionTarget:
+      active: 0
+      xOffset: 0
+      yOffset: 0
+    hurtboxPositionChange:
+      active: 1
+      xOffset: -32
+      yOffset: 0
+      width: 290
+      height: 320
+  - frame: 17
+    casterPositionChange:
+      active: 0
+      x: 0
+      y: 0
+    casterVelocitySet:
+      active: 0
+      magnitude: 0
+      directionDeg: 0
+    casterVelocitySetXY:
+      activeX: 0
+      magnitudeX: 0
+      activeY: 0
+      magnitudeY: 0
+    dealtPositionTarget:
+      active: 0
+      xOffset: 0
+      yOffset: 0
+    hurtboxPositionChange:
+      active: 1
+      xOffset: -26
+      yOffset: 0
+      width: 290
+      height: 320
+  - frame: 19
+    casterPositionChange:
+      active: 0
+      x: 0
+      y: 0
+    casterVelocitySet:
+      active: 0
+      magnitude: 0
+      directionDeg: 0
+    casterVelocitySetXY:
+      activeX: 0
+      magnitudeX: 0
+      activeY: 0
+      magnitudeY: 0
+    dealtPositionTarget:
+      active: 0
+      xOffset: 0
+      yOffset: 0
+    hurtboxPositionChange:
+      active: 1
+      xOffset: -12
+      yOffset: 0
+      width: 290
+      height: 320
+  - frame: 20
+    casterPositionChange:
+      active: 0
+      x: 0
+      y: 0
+    casterVelocitySet:
+      active: 0
+      magnitude: 0
+      directionDeg: 0
+    casterVelocitySetXY:
+      activeX: 0
+      magnitudeX: 0
+      activeY: 0
+      magnitudeY: 0
+    dealtPositionTarget:
+      active: 0
+      xOffset: 0
+      yOffset: 0
+    hurtboxPositionChange:
+      active: 1
+      xOffset: 0
+      yOffset: 0
+      width: 290
+      height: 320

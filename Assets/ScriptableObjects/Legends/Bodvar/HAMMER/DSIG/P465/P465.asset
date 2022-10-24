@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e56f0f2e08542fc4aa86da5dc1d78e28, type: 3}
+  m_Name: P465
+  m_EditorClassIdentifier: 
+  powerID: 465
+  fixedRecovery: 0
+  recovery: 0
+  cooldown: 16
+  minCharge: 15
+  stunTime: 18
+  hitAngleDeg: 0
+  isCharge: 0
+  damageOverLifeOfHitbox: 0
+  onHitNextPower: {fileID: 0}
+  onMissNextPower: {fileID: 11400000, guid: 6f1984162518bbd47ab37ed9f1916775, type: 2}
+  casts:
+  - {fileID: 11400000, guid: 2e8a41842a3bc3f4ca8e231c3b9eafb1, type: 2}
+  - {fileID: 11400000, guid: 2ba4d083a679ece43b3409a4499bd115, type: 2}

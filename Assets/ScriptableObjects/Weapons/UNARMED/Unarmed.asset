@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240194414915b704a9810e57ff9ba67f, type: 3}
+  m_Name: Unarmed
+  m_EditorClassIdentifier: 
+  weaponType: 0
+  throwSize: {x: 0, y: 0}
+  m_moves:
+  - {fileID: 11400000, guid: 9053cbc08990fc444a4dda8f185a9a87, type: 2}
+  - {fileID: 11400000, guid: 16adb9cd21ff430419a7d64a5a00e90b, type: 2}
+  - {fileID: 11400000, guid: 2c4db0504c2e9884c930326dbdd2cf82, type: 2}
+  - {fileID: 11400000, guid: 9b6dcda9f2dcda646854af442d4fd553, type: 2}
+  - {fileID: 11400000, guid: 892c5763c9c68dd46bf8664ae29f3563, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: b266e39a88b827441b07c10e4352f481, type: 2}
+  - {fileID: 11400000, guid: 2acfaad880ec30a4b9e37c42d0393e55, type: 2}

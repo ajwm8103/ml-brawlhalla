@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e56f0f2e08542fc4aa86da5dc1d78e28, type: 3}
+  m_Name: P142
+  m_EditorClassIdentifier: 
+  powerID: 142
+  fixedRecovery: 0
+  recovery: 0
+  cooldown: 11
+  minCharge: 0
+  stunTime: 25
+  isCharge: 0
+  damageOverLifeOfHitbox: 0
+  onHitNextPower: {fileID: 11400000, guid: f0f4f53d1eb5da74f8fcf1c2ce3b4bc9, type: 2}
+  onMissNextPower: {fileID: 11400000, guid: df85c027b19fb584ab958dc28da57f14, type: 2}
+  casts:
+  - {fileID: 11400000, guid: edf7d01515aeacf40a938bca102a7f9b, type: 2}
+  - {fileID: 11400000, guid: 4e1bc64e53d409745ae0c3813ed519f9, type: 2}
+  - {fileID: 11400000, guid: 38cfdd115e2e31c45b95b0bc5d16ad8b, type: 2}

@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f218bb52b74b0cd41bb21aecddaf72eb, type: 3}
+  m_Name: P10C1
+  m_EditorClassIdentifier: 
+  startupFrames: 11
+  attackFrames: 3
+  baseDamage: 15
+  variableForce: 40
+  fixedForce: 55
+  hitboxes:
+  - xOffset: 50
+    yOffset: -42
+    width: 34
+    height: 116
+  - xOffset: 37
+    yOffset: -81
+    width: 36
+    height: 112
+  - xOffset: 23
+    yOffset: -120
+    width: 34
+    height: 52
+  - xOffset: 35
+    yOffset: -23
+    width: 34
+    height: 50
+  frameChanges:
+  - frame: 6
+    casterPositionChange:
+      active: 0
+      x: 0
+      y: 0
+    casterVelocitySet:
+      active: 0
+      magnitude: 0
+      directionDeg: 0
+    casterVelocitySetXY:
+      activeX: 0
+      magnitudeX: 0
+      activeY: 0
+      magnitudeY: 0
+    dealtPositionTarget:
+      active: 0
+      xOffset: 0
+      yOffset: 0
+    hurtboxPositionChange:
+      active: 1
+      xOffset: 11
+      yOffset: 5
+      width: 290
+      height: 302
+  - frame: 9
+    casterPositionChange:
+      active: 0
+      x: 0
+      y: 0
+    casterVelocitySet:
+      active: 0
+      magnitude: 0
+      directionDeg: 0
+    casterVelocitySetXY:
+      activeX: 0
+      magnitudeX: 0
+      activeY: 0
+      magnitudeY: 0
+    dealtPositionTarget:
+      active: 0
+      xOffset: 0
+      yOffset: 0
+    hurtboxPositionChange:
+      active: 1
+      xOffset: 9
+      yOffset: 4
+      width: 284
+      height: 310
+  - frame: 11
+    casterPositionChange:
+      active: 0
+      x: 0
+      y: 0
+    casterVelocitySet:
+      active: 1
+      magnitude: 6
+      directionDeg: 70
+    casterVelocitySetXY:
+      activeX: 0
+      magnitudeX: 0
+      activeY: 0
+      magnitudeY: 0
+    dealtPositionTarget:
+      active: 0
+      xOffset: 0
+      yOffset: 0
+    hurtboxPositionChange:
+      active: 1
+      xOffset: -6
+      yOffset: -8
+      width: 290
+      height: 320

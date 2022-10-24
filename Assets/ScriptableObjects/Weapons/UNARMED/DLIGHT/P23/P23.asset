@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e56f0f2e08542fc4aa86da5dc1d78e28, type: 3}
+  m_Name: P23
+  m_EditorClassIdentifier: 
+  powerID: 23
+  fixedRecovery: 0
+  recovery: 0
+  cooldown: 13
+  minCharge: 0
+  stunTime: 31
+  hitAngleDeg: 90
+  isCharge: 0
+  damageOverLifeOfHitbox: 0
+  disableCasterGravity: 0
+  disableHitGravity: 0
+  transitionOnInstantHit: 1
+  onHitNextPower: {fileID: 11400000, guid: 690fd841f910e4f4380edcea6f2a5fc1, type: 2}
+  onMissNextPower: {fileID: 11400000, guid: 8e4d21fb72d32c646a0d2e8c9d8288e2, type: 2}
+  casts:
+  - {fileID: 11400000, guid: 243edb2f891538043bfd35ec4cb39cb6, type: 2}
+  - {fileID: 11400000, guid: 6411c5eb2dbcfce4e848ed4c482cf52a, type: 2}
+  - {fileID: 11400000, guid: 93ae855161eb20a47abf9affef3f00a0, type: 2}

@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 5d4192a592e193144828704919cfb9bc
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Eras BQ
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4b2b62941b3d38f4087f9f2bf693c1ce, type: 3}
+  - {fileID: 12800000, guid: 4cad11442aa8b524c822ac4a5ec70da6, type: 3}
+  - {fileID: 12800000, guid: f72b7501e5ff1fe47bbbe1ab3afb616e, type: 3}
+  - {fileID: 12800000, guid: d1bea2b459835d9438b9fa65e9b9b378, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
