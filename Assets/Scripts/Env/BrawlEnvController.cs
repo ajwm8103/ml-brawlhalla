@@ -241,9 +241,10 @@ public class BrawlEnvController : MonoBehaviour
                     opponent.AddReward(0.6f);
 
                     // magic stuff to counteract existential boost
-                    kodAgent.AddReward(-(float)stepsRemaining / maxSteps);
-                    opponent.AddReward((float)stepsRemaining / maxSteps);
                 }
+
+                // Cancel out time penalty for losing
+                kodAgent.AddReward(-(float)stepsRemaining / maxSteps);
 
                 // Damage reward
                 float damageToReward = 1f / 200f; // 1 point for the damage required to get to darker red health
