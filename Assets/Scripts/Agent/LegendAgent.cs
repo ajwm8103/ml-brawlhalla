@@ -1235,10 +1235,15 @@ public class LegendAgent : Agent
 
         //m_agentInfo.AddReward(-m_Existential);
         //AddReward(-m_Existential);
+        m_agentInfo.AddReward(-m_Existential);
         if (Mathf.Abs(transform.position.x) > 5f) {
             m_agentInfo.AddReward(-m_Existential);
         }
 
+        if (Mathf.Abs(transform.position.y) < 0f)
+        {
+            m_agentInfo.AddReward(-m_Existential);
+        }
         MoveAgent(actionBuffers.DiscreteActions);
 
         // Graphics
