@@ -23,6 +23,8 @@ public class BrawlEnvController : MonoBehaviour
     public Transform gadgetHolder;
     public Stage stage;
 
+    public event System.Action OnMatchEnd;
+
     [System.Serializable]
     public class AgentInfo
     {
@@ -197,6 +199,7 @@ public class BrawlEnvController : MonoBehaviour
         if (valid){
             foreach (AgentInfo agentInfo in agents)
             {
+                //Debug.Log(string.Format("{0} {1}", agentInfo.agent.team, agentInfo.totalReward));
                 agentInfo.agent.PostAction();
                 agentInfo.agent.hasActed = false;
             }
@@ -236,6 +239,10 @@ public class BrawlEnvController : MonoBehaviour
                     // Extra negative reward for falling off on your own
                     kodAgent.AddReward(-0.6f);
                     opponent.AddReward(0.6f);
+
+                    // magic stuff to counteract existential boost
+                    kodAgent.AddReward(-(float)stepsRemaining / maxSteps);
+                    opponent.AddReward((float)stepsRemaining / maxSteps);
                 }
 
                 // Damage reward
@@ -252,6 +259,8 @@ public class BrawlEnvController : MonoBehaviour
 
                     // Visual
                     m_totalWinsText.text = string.Format("{0} - {1}", m_redAgent.totalWins, m_blueAgent.totalWins);
+
+                    OnMatchEnd();
 
                     kodAgent.agent.EndEpisode();
                     opponent.agent.EndEpisode();

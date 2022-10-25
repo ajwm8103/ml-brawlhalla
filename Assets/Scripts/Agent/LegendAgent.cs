@@ -479,7 +479,7 @@ public class LegendAgent : Agent
         // Target and Agent positions
 
         // Agent movement
-        if (m_brawlSettings.teamPositionCount == 1){
+        if (m_brawlSettings.teamPositionCount == 1) {
             BrawlEnvController.AgentInfo myAgentInfo = null;
             BrawlEnvController.AgentInfo opponentAgentInfo = null;
             foreach (BrawlEnvController.AgentInfo agentInfo in envController.agents)
@@ -498,11 +498,13 @@ public class LegendAgent : Agent
 
             // My visible state
             VisibleState myVisibleState = GetVisibleState();
+            //Debug.Log(String.Format("Agent {0} sees itself as {1}", team, myVisibleState.localPosition.x));
             myVisibleState.AddObservations(sensor);
             sensor.AddObservation(myAgentInfo.stocks);
 
             // Opponent visible state
             VisibleState opponentVisibleState = opponentAgentInfo.agent.GetVisibleState();
+            //Debug.Log(String.Format("Agent {0} sees its opponent as {1}", team, opponentVisibleState.localPosition.x));
             opponentVisibleState.AddObservations(sensor);
             sensor.AddObservation(opponentAgentInfo.stocks);
 

@@ -6,9 +6,13 @@ using UnityEngine.UI;
 public class StockViewManager : MonoBehaviour
 {
 
+    public BrawlEnvController brawlEnvController;
     [Header("StockViews")]
     [SerializeField]
     private StockView[] stockViews;
+
+    [Header("Prefabs")]
+    public Text finalRewardNumberPrefab;
 
     [System.Serializable]
     public class StockView
@@ -23,6 +27,10 @@ public class StockViewManager : MonoBehaviour
         public Text stockNumber;
         [HideInInspector]
         public Text rewardNumber;
+        [HideInInspector]
+        public Transform finalRewardNumberTransform;
+
+        public string lastReward;
 
 
         public void Setup()
@@ -31,6 +39,7 @@ public class StockViewManager : MonoBehaviour
             agentIcon = stockViewObject.transform.Find("AgentIcon").GetComponent<Image>();
             stockNumber = stockViewObject.transform.Find("StockNumber").GetComponent<Text>();
             rewardNumber = stockViewObject.transform.Find("RewardNumber").GetComponent<Text>();
+            finalRewardNumberTransform = stockViewObject.transform.Find("FinalRewardNumberTransform");
             //Debug.Log(stockColor);
             //Debug.Log(agentIcon);
         }
@@ -55,8 +64,27 @@ public class StockViewManager : MonoBehaviour
             }
             stockView.stockNumber.text = m_brawlSettings.stockCount.ToString();
         }
+        brawlEnvController.OnMatchEnd += FireFinalUpdates;
     }
 
+    public void FireFinalUpdates(){
+        foreach (BrawlEnvController.AgentInfo agentInfo in brawlEnvController.agents)
+        {
+            foreach (StockView stockView in stockViews)
+            {
+                if (stockView.agent == agentInfo.agent)
+                {
+                    Text finalRewardGhost = Instantiate(finalRewardNumberPrefab, stockView.finalRewardNumberTransform.position, Quaternion.identity);
+                    finalRewardGhost.text = agentInfo.totalReward.ToString();
+                    finalRewardGhost.transform.SetParent(stockView.rewardNumber.transform.parent, false);
+                    finalRewardGhost.transform.position = stockView.finalRewardNumberTransform.position;
+                    finalRewardGhost.transform.localScale = stockView.rewardNumber.transform.localScale;
+                    Destroy(finalRewardGhost.gameObject, 2f);
+                }
+
+            }
+        }
+    }
     public void DisplayStocks(List<BrawlEnvController.AgentInfo> agents)
     {
         foreach (BrawlEnvController.AgentInfo agentInfo in agents)
@@ -98,6 +126,16 @@ public class StockViewManager : MonoBehaviour
                     stockView.stockColor.color = new Color(r / 255f, g / 255f, b / 255f);
                     stockView.stockNumber.text = agentInfo.stocks.ToString();
                     stockView.rewardNumber.text = agentInfo.totalReward.ToString();
+
+                    if (agentInfo.totalReward == 0){
+                        Text finalRewardGhost = Instantiate(finalRewardNumberPrefab, stockView.finalRewardNumberTransform.position, Quaternion.identity);
+                        finalRewardGhost.text = stockView.lastReward;
+                        finalRewardGhost.transform.SetParent(stockView.rewardNumber.transform.parent, false);
+                        finalRewardGhost.transform.localScale = stockView.rewardNumber.transform.localScale;
+                        Destroy(finalRewardGhost.gameObject, 2f);
+                    }
+
+                    stockView.lastReward = stockView.rewardNumber.text;
                 }
             }
         }
