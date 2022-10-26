@@ -13244,7 +13244,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 5022602860645237092, guid: fdd235468fec4ff44a82bacc40b0b1e3, type: 3}
   m_InferenceDevice: 3
-  m_BehaviorType: 1
+  m_BehaviorType: 0
   m_BehaviorName: BrawlOnes
   TeamId: 0
   m_UseChildSensors: 1
