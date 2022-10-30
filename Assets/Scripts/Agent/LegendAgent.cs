@@ -1236,11 +1236,11 @@ public class LegendAgent : Agent
         //m_agentInfo.AddReward(-m_Existential);
         //AddReward(-m_Existential);
         m_agentInfo.AddReward(-m_Existential);
-        if (Mathf.Abs(transform.position.x) > 5f) {
+        if (Mathf.Abs(transform.position.x - envController.transform.position.x) > 5f) {
             m_agentInfo.AddReward(-m_Existential);
         }
 
-        if (Mathf.Abs(transform.position.y) < 0f)
+        if (Mathf.Abs(transform.position.y - envController.transform.position.y) < 0f)
         {
             m_agentInfo.AddReward(-m_Existential);
         }
@@ -1302,7 +1302,7 @@ public class LegendAgent : Agent
         // KO Visual
 
         // Respawn Visual
-        GameObject effectObject = Instantiate(respawnPrefab, spawnPos, Quaternion.identity);
+        GameObject effectObject = Instantiate(respawnPrefab, spawnPos + transform.position, Quaternion.identity);
         effectObject.transform.parent = envController.effectHolder;
         Destroy(effectObject, 3f);
     }
@@ -1352,22 +1352,24 @@ public class LegendAgent : Agent
         } else if (playerType == PlayerType.STAND){
             // do nothing hurrah
         } else if (playerType == PlayerType.BOT){
-            if (transform.position.x > 4f){
+            if (transform.localPosition.x > 4f){
                 discreteActionsOut[(int)ActionKey.LEFT] = 1;
-            } else if (transform.position.x < -4f){
+            } else if (transform.localPosition.x < -4f){
                 discreteActionsOut[(int)ActionKey.RIGHT] = 1;
             } else {
-                if (opponent.transform.position.x - transform.position.x > 0)
-                {
-                    discreteActionsOut[(int)ActionKey.RIGHT] = 1;
-                }
-                else if (opponent.transform.position.x - transform.position.x < 0)
-                {
-                    discreteActionsOut[(int)ActionKey.LEFT] = 1;
+                if (funValue < 30 || envController.totalSteps > 100 + funValue){
+                    if (opponent.transform.position.x - transform.position.x > 0)
+                    {
+                        discreteActionsOut[(int)ActionKey.RIGHT] = 1;
+                    }
+                    else
+                    {
+                        discreteActionsOut[(int)ActionKey.LEFT] = 1;
+                    }
                 }
             }
             
-            if (transform.position.y < -1 || opponent.transform.position.y - transform.position.y > 0)
+            if (transform.localPosition.y < -1 || opponent.transform.position.y - transform.position.y > 0)
             {
                 discreteActionsOut[(int)ActionKey.JUMP] = 1;
             }
@@ -1376,11 +1378,11 @@ public class LegendAgent : Agent
                 discreteActionsOut[(int)ActionKey.LIGHT] = 1;
             }
         } else if (playerType == PlayerType.BOT_JUMP_TO_STAGE){
-            if (transform.position.x > 4f)
+            if (transform.localPosition.x > 4f)
             {
                 discreteActionsOut[(int)ActionKey.LEFT] = 1;
             }
-            else if (transform.position.x < -4f)
+            else if (transform.localPosition.x < -4f)
             {
                 discreteActionsOut[(int)ActionKey.RIGHT] = 1;
             }
@@ -1396,7 +1398,7 @@ public class LegendAgent : Agent
                 }
             }
 
-            if (transform.position.y < -1)
+            if (transform.localPosition.y < -1)
             {
                 discreteActionsOut[(int)ActionKey.JUMP] = 1;
             }

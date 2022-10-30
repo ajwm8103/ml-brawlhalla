@@ -165,10 +165,10 @@ public class BrawlEnvController : MonoBehaviour
             }
             else
             {
-                Vector3 spawnPos = new Vector3(Random.Range(-1,1)*stage.WeaponSpawnBounds.size.x/2 + stage.WeaponSpawnBounds.center.x,
-                Random.Range(-1, 1) * stage.WeaponSpawnBounds.size.y/2 + stage.WeaponSpawnBounds.center.y,
+                Vector3 spawnPos = new Vector3(Random.Range(-1f,1f)*stage.WeaponSpawnBounds.size.x/2 + stage.WeaponSpawnBounds.center.x,
+                Random.Range(-1f, 1f) * stage.WeaponSpawnBounds.size.y/2 + stage.WeaponSpawnBounds.center.y,
                 transform.position.z);
-                WeaponSpawn ws = Instantiate(weaponSpawnPrefab, spawnPos, Quaternion.identity);
+                WeaponSpawn ws = Instantiate(weaponSpawnPrefab, transform.position + spawnPos, Quaternion.identity);
                 ws.transform.parent = gadgetHolder;
             }
 
@@ -218,7 +218,7 @@ public class BrawlEnvController : MonoBehaviour
         foreach (Stage.TeamPositionSpawn spawn in stage.spawns)
         {
             if (spawn.team == teamNumber && spawn.position == teamPosition){
-                return spawn.spawnTransform.position;
+                return spawn.spawnTransform.localPosition;
             }
         }
         return new Vector3(0, 1.516f, 0);
