@@ -19,6 +19,7 @@ public class BrawlSettings : MonoBehaviour
 
     [Header("Visual Settings")]
     public bool useEffects = true;
+    public bool useFiltering = true;
     public Dictionary<Team, Color> m_teamColors = new Dictionary<Team, Color>() {
     { Team.RED, Color.red },
     { Team.BLUE, Color.blue }

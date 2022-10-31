@@ -100,6 +100,7 @@ public class LegendAgent : Agent
     private float m_Existential;
 
     // Private vars
+    List<int> filteredDiscrete;
 
     // References to components
     BrawlEnvController envController;
