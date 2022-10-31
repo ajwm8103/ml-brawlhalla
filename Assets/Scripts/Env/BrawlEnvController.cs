@@ -254,8 +254,8 @@ public class BrawlEnvController : MonoBehaviour
 
                 if (agentInfo.stocks == 0){
                     // End game
-                    kodAgent.AddReward(-5);
-                    opponent.AddReward(5);
+                    kodAgent.AddReward(-3.5f);
+                    opponent.AddReward(3.5f);
                     opponent.totalWins++;
 
                     // Visual

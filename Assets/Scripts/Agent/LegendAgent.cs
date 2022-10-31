@@ -586,6 +586,11 @@ public class LegendAgent : Agent
     }
 
     public void PostAction(){
+        if (!isAlive)
+        {
+            m_rigidbody.velocity = Vector2.zero;
+            return;
+        }
         // Collision stuff
         m_grounded = false;
         m_walled = false;
@@ -1275,6 +1280,7 @@ public class LegendAgent : Agent
         // Everything below this comment in this override should be removed!!! TODO
 
         // Rewards
+        //Debug.Log(String.Format("{0} {1}", transform.localPosition.x, transform.localPosition.y));
         bool topKO = transform.localPosition.y > envController.stage.KOBounds.center.y + envController.stage.KOBounds.size.y / 2;
         bool bottomKO = transform.localPosition.y <  envController.stage.KOBounds.center.y - envController.stage.KOBounds.size.y / 2;
         bool leftKO = transform.localPosition.x < envController.stage.KOBounds.center.x - envController.stage.KOBounds.size.x / 2;
