@@ -1242,12 +1242,12 @@ public class LegendAgent : Agent
         //AddReward(-m_Existential);
         m_agentInfo.AddReward(-m_Existential);
         if (Mathf.Abs(transform.position.x - envController.transform.position.x) > 5f) {
-            m_agentInfo.AddReward(-m_Existential);
+            m_agentInfo.AddReward(-m_Existential/5f);
         }
 
         if (Mathf.Abs(transform.position.y - envController.transform.position.y) < 0f)
         {
-            m_agentInfo.AddReward(-m_Existential);
+            m_agentInfo.AddReward(-m_Existential/5f);
         }
         MoveAgent(actionBuffers.DiscreteActions);
 

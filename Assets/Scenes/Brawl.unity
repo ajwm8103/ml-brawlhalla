@@ -67328,7 +67328,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 32591275ce8039f4ba3ad0a13610d8ee, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: fdce23f01da3582448594f8db019f8c1, type: 3}
   m_InferenceDevice: 3
   m_BehaviorType: 0
   m_BehaviorName: BrawlOnes
@@ -69867,9 +69867,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: a69f278762a41ba4bb194afbec43f2f9, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: fdce23f01da3582448594f8db019f8c1, type: 3}
   m_InferenceDevice: 3
-  m_BehaviorType: 0
+  m_BehaviorType: 2
   m_BehaviorName: BrawlOnes
   TeamId: 1
   m_UseChildSensors: 1
@@ -78017,9 +78017,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: a69f278762a41ba4bb194afbec43f2f9, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: fdce23f01da3582448594f8db019f8c1, type: 3}
   m_InferenceDevice: 3
-  m_BehaviorType: 0
+  m_BehaviorType: 2
   m_BehaviorName: BrawlOnes
   TeamId: 0
   m_UseChildSensors: 1
