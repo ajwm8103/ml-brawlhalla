@@ -1309,7 +1309,7 @@ public class LegendAgent : Agent
         // KO Visual
 
         // Respawn Visual
-        GameObject effectObject = Instantiate(respawnPrefab, spawnPos + transform.position, Quaternion.identity);
+        GameObject effectObject = Instantiate(respawnPrefab, spawnPos + envController.transform.position, Quaternion.identity);
         effectObject.transform.parent = envController.effectHolder;
         Destroy(effectObject, 3f);
     }
