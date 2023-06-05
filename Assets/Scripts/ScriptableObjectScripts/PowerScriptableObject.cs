@@ -28,8 +28,12 @@ public class PowerScriptableObject : ScriptableObject
     public bool onHitVelocitySetActive = false; // i.e. unarmed nair hit stops velocity
     public float onHitVelocitySetMagnitude = 0f;
     public float onHitVelocitySetDirectionDeg = 0f;
-    [Header("Hit and Miss Powers")]
+    [Header("Ground Collision ")]
+    [Header("Instantly On Ground Collide")]
+    public PowerScriptableObject onGroundNextPower;
+    [Header("If Hit, or Instantly On Hit")]
     public PowerScriptableObject onHitNextPower;
+    [Header("If Missed")]
     public PowerScriptableObject onMissNextPower; // if doesn't matter, place next here :)
     [Header("Casts")]
     public CastScriptableObject[] casts;

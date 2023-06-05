@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f218bb52b74b0cd41bb21aecddaf72eb, type: 3}
+  m_Name: P13C2
+  m_EditorClassIdentifier: 
+  startupFrames: 4
+  attackFrames: 16
+  baseDamage: 16
+  variableForce: 5
+  fixedForce: 65
+  hitboxes:
+  - xOffset: 21
+    yOffset: 33
+    width: 30
+    height: 30
+  - xOffset: 27
+    yOffset: 40
+    width: 34
+    height: 46
+  - xOffset: 48
+    yOffset: 69
+    width: 44
+    height: 48
+  frameChanges:
+  - frame: 0
+    casterPositionChange:
+      active: 0
+      x: 0
+      y: 0
+    casterVelocitySet:
+      active: 1
+      magnitude: 2
+      directionDeg: -45
+    casterVelocitySetXY:
+      activeX: 0
+      magnitudeX: 0
+      activeY: 0
+      magnitudeY: 0
+    casterVelocityDampXY:
+      activeX: 0
+      dampX: 0
+      activeY: 0
+      dampY: 0
+    dealtPositionTarget:
+      active: 0
+      xOffset: 0
+      yOffset: 0
+    hurtboxPositionChange:
+      active: 0
+      xOffset: 0
+      yOffset: 0
+      width: 0
+      height: 0
