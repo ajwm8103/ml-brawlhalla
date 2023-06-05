@@ -38,7 +38,7 @@ public class MoveManager
         frame = 0;
     }
 
-    public bool DoMove(ActionSegment<int> action, LegendAgent agent)
+    public bool DoMove(ActionSegment<int> action, bool isHoldingMoveType, LegendAgent agent)
     {
         //Debug.Log("Doing move.");
         // check if charging from action
@@ -49,7 +49,7 @@ public class MoveManager
         }
 
         Power nextPower = null;
-        bool done = currentPower.DoPower(holdingMoveKey, agent, this, out nextPower);
+        bool done = currentPower.DoPower(holdingMoveKey, isHoldingMoveType, agent, this, out nextPower);
         if (nextPower != null){
             currentPower = nextPower;
         }

@@ -21,6 +21,7 @@ public class Stage : MonoBehaviour
 
     public BrawlBound KOBounds;
     public BrawlBound WeaponSpawnBounds;
+    public List<GroundSegment> groundSegments;
     public Transform initialWeaponSpawnOnes;
     public string stageName = "Small Brawlhaven";
     public StageType stageType = StageType.SMALL_BRAWLHAVEN;

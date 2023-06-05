@@ -13,7 +13,9 @@ public class CastScriptableObject : ScriptableObject
     public float variableForce = 0;
     public float fixedForce = 0;
     [Header("Extra Data")]
+    public bool mustBeHeld = false;
     public Hitbox[] hitboxes;
+    public CollisionCheckPoint[] collisionCheckPoints;
     public List<CastFrameChangeHolder> frameChanges;
 
     public Cast GetCast(){
@@ -118,4 +120,10 @@ public class Hitbox
     public int xOffset, yOffset;
     public int width = 290;
     public int height = 320;
+}
+
+[System.Serializable]
+public class CollisionCheckPoint
+{
+    public int xOffset, yOffset;
 }

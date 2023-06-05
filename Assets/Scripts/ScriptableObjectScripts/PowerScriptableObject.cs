@@ -28,8 +28,11 @@ public class PowerScriptableObject : ScriptableObject
     public bool onHitVelocitySetActive = false; // i.e. unarmed nair hit stops velocity
     public float onHitVelocitySetMagnitude = 0f;
     public float onHitVelocitySetDirectionDeg = 0f;
-    [Header("Hit and Miss Powers")]
+    [Header("Instantly On Ground Collide")]
+    public PowerScriptableObject onGroundNextPower;
+    [Header("If Hit, or Instantly On Hit")]
     public PowerScriptableObject onHitNextPower;
+    [Header("If Missed")]
     public PowerScriptableObject onMissNextPower; // if doesn't matter, place next here :)
     [Header("Casts")]
     public CastScriptableObject[] casts;
@@ -61,6 +64,8 @@ public class Power {
     public Vector2 currentDealtPositionTarget;
     public List<LegendAgent> agentsInMove;
     public Cast[] casts;
+    private bool isSwitchingCasts = true;
+    private List<Vector2> pastPointPositions;
     private LegendAgent m_Agent;
 
     // Calculated things
@@ -80,13 +85,14 @@ public class Power {
         }
     }
 
-    public bool DoPower(bool holdingKey, LegendAgent agent, MoveManager mm, out Power nextPower)
+    public bool DoPower(bool holdingKey, bool isHoldingMoveType, LegendAgent agent, MoveManager mm, out Power nextPower)
     {
         m_Agent = agent;
         //Debug.Log(string.Format("Doing power {0}.", powerData.powerID));
 
         bool done = false;
         bool transitioningDueToInstantHit = false;
+        bool transitioningToNextPower = false;
         nextPower = null;
 
         agent.SetGravityDisabled(powerData.disableCasterGravity);
@@ -118,10 +124,9 @@ public class Power {
                 hitVector.x *= mm.moveFacingDirection;
             }
             
-
-
             bool inStartup = currentCast.frameIdx < currentCast.castData.startupFrames;
-            bool inAttack = !inStartup && currentCast.frameIdx < (currentCast.castData.startupFrames + currentCast.castData.attackFrames);
+            bool isInAttackFrames = currentCast.frameIdx < (currentCast.castData.startupFrames + currentCast.castData.attackFrames);
+            bool inAttack = !inStartup && (isInAttackFrames || currentCast.castData.mustBeHeld);
             if (inStartup) {
                 agent.DoCastFrameChanges(cfch, mm);
                 // Visuals
@@ -129,10 +134,67 @@ public class Power {
             } else if (inAttack) {
                 agent.DoCastFrameChanges(cfch, mm);
                 // Visuals
-                m_Agent.SetHitboxesToDraw(currentCast.castData.hitboxes, mm.moveFacingDirection);
+                m_Agent.SetHitboxesToDraw(currentCast.castData.hitboxes, currentCast.castData.collisionCheckPoints, mm.moveFacingDirection);
 
                 float castDamage = currentCast.castData.baseDamage; // update this for
                 float damageToDeal = powerData.damageOverLifeOfHitbox ? castDamage / currentCast.castData.attackFrames : castDamage;
+
+                // Check collision
+                bool collided = false;
+                if (isSwitchingCasts){
+                    isSwitchingCasts = false;
+                } else {
+                    // Has past info to work with
+                    
+                    for (int i = 0; i < currentCast.castData.collisionCheckPoints.Length; i++)
+                    {
+                        CollisionCheckPoint point = currentCast.castData.collisionCheckPoints[i];
+                        Vector3 pointOffset = BrawlHitboxUtility.GetHitboxOffset(point.xOffset, point.yOffset);
+                        pointOffset.x *= mm.moveFacingDirection;
+                        Vector3 pointPos = agent.transform.position + pointOffset;
+                        Vector3 oldPointPos = pastPointPositions[i];
+                        /*Collider[] hitColliders = Physics.OverlapSphere(pointOffset, 0f, LayerMask.GetMask("Stage"));
+                        if (hitColliders == null || hitColliders.Length == 0){
+                            collided = true;
+                            break;
+                        }*/
+                        //Debug.Log(oldPointPos);
+                        //Debug.Log(pointPos);
+                        foreach (GroundSegment groundSegment in agent.envController.stage.groundSegments)
+                        {
+                            if (groundSegment.CheckIntersection(oldPointPos, pointPos)){
+                                collided = true;
+                                //Debug.Log("Collided with ground!");
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                // Initialize past point info
+                pastPointPositions = new List<Vector2>();
+                foreach (CollisionCheckPoint point in currentCast.castData.collisionCheckPoints)
+                {
+                    Vector3 pointOffset = BrawlHitboxUtility.GetHitboxOffset(point.xOffset, point.yOffset);
+                    pointOffset.x *= mm.moveFacingDirection;
+                    Vector3 pointPos = agent.transform.position + pointOffset;
+                    pastPointPositions.Add(pointPos);
+                }
+
+                if (currentCast.castData.mustBeHeld && !isHoldingMoveType)
+                {
+                    transitioningToNextPower = true;
+                    nextPower = powerData.onMissNextPower.GetPower();
+                }
+
+                if (collided)
+                {
+                    transitioningToNextPower = true;
+                    nextPower = (powerData.onGroundNextPower ? powerData.onGroundNextPower : powerData.onMissNextPower).GetPower();
+                }
+
+                
+
 
                 // Check hitboxes
                 bool hitboxHit = false;
@@ -218,7 +280,8 @@ public class Power {
             }
             currentCast.frameIdx++;
 
-            if (!transitioningDueToInstantHit & !inAttack && !inStartup)
+            // Recovery stuff
+            if (!transitioningToNextPower & !inAttack && !inStartup)
             {
                 // Visuals
                 m_Agent.SetHitboxesToDraw();
@@ -251,6 +314,7 @@ public class Power {
                 {
                     // Move to next cast
                     castIdx++;
+                    isSwitchingCasts = true;
                 }
             }
         }

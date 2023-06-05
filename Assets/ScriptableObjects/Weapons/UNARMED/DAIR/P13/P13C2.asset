@@ -10,16 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f218bb52b74b0cd41bb21aecddaf72eb, type: 3}
-  m_Name: P23C3
+  m_Name: P13C2
   m_EditorClassIdentifier: 
-  startupFrames: 0
-  attackFrames: 3
-  baseDamage: 0
-  variableForce: 0
-  fixedForce: 0
-  mustBeHeld: 0
-  hitboxes: []
-  collisionCheckPoints: []
+  startupFrames: 4
+  attackFrames: 16
+  baseDamage: 16
+  variableForce: 5
+  fixedForce: 65
+  hitboxes:
+  - xOffset: 21
+    yOffset: 33
+    width: 30
+    height: 30
+  - xOffset: 27
+    yOffset: 40
+    width: 34
+    height: 46
+  - xOffset: 48
+    yOffset: 69
+    width: 44
+    height: 48
+  collisionCheckPoints:
+  - xOffset: 60
+    yOffset: 82
   frameChanges:
   - frame: 0
     casterPositionChange:
@@ -27,12 +40,12 @@ MonoBehaviour:
       x: 0
       y: 0
     casterVelocitySet:
-      active: 0
-      magnitude: 0
-      directionDeg: 0
+      active: 1
+      magnitude: 8
+      directionDeg: -45
     casterVelocitySetXY:
-      activeX: 1
-      magnitudeX: 1
+      activeX: 0
+      magnitudeX: 0
       activeY: 0
       magnitudeY: 0
     casterVelocityDampXY:
@@ -45,8 +58,8 @@ MonoBehaviour:
       xOffset: 0
       yOffset: 0
     hurtboxPositionChange:
-      active: 1
-      xOffset: -5
-      yOffset: 20
-      width: 290
-      height: 320
+      active: 0
+      xOffset: 0
+      yOffset: 0
+      width: 0
+      height: 0

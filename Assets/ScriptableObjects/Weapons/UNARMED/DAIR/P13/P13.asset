@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e56f0f2e08542fc4aa86da5dc1d78e28, type: 3}
-  m_Name: P16
+  m_Name: P13
   m_EditorClassIdentifier: 
-  powerID: 16
+  powerID: 13
   fixedRecovery: 0
   recovery: 0
-  cooldown: 19
-  minCharge: 40
+  cooldown: 9
+  minCharge: 0
   stunTime: 19
-  hitAngleDeg: -90
+  hitAngleDeg: 0
   isCharge: 0
   damageOverLifeOfHitbox: 0
-  disableCasterGravity: 0
+  disableCasterGravity: 1
   disableHitGravity: 0
   targetAllHitAgents: 0
-  transitionOnInstantHit: 1
+  transitionOnInstantHit: 0
   onHitVelocitySetActive: 0
   onHitVelocitySetMagnitude: 0
   onHitVelocitySetDirectionDeg: 0
-  onGroundNextPower: {fileID: 11400000, guid: 010df18259d0ed2419bacd7fd1939e8a, type: 2}
-  onHitNextPower: {fileID: 11400000, guid: 3fc9388c16b1b464b804df87167def6c, type: 2}
-  onMissNextPower: {fileID: 11400000, guid: fcefcd93ff24cd1418ea63e104bd36c2, type: 2}
+  onGroundNextPower: {fileID: 11400000, guid: 4acb2839fa2798546aed8d164a6136db, type: 2}
+  onHitNextPower: {fileID: 11400000, guid: 6e90d2f1acebc6c468a9478b97c2d3bc, type: 2}
+  onMissNextPower: {fileID: 11400000, guid: 6e90d2f1acebc6c468a9478b97c2d3bc, type: 2}
   casts:
-  - {fileID: 11400000, guid: b8cef4a55944b964fa84aa062f90fe04, type: 2}
-  - {fileID: 11400000, guid: b7e3c4bc531e7a3468ec06dbe6016ac9, type: 2}
+  - {fileID: 11400000, guid: 9fc89ed3dfb30444ca0cecfa85d5b8c0, type: 2}
+  - {fileID: 11400000, guid: d697c2ebcdc4ec1488a9c6611494cdb9, type: 2}
