@@ -941,7 +941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseArea: {fileID: 108230427}
-  numAreas: 1
+  numAreas: 49
   separation: {x: 50, y: 40}
 --- !u!1 &368330280
 GameObject:
@@ -7086,6 +7086,7 @@ MonoBehaviour:
   spawnPos: {x: 0, y: 0, z: 0}
   hasActed: 0
   m_hitboxesToDraw: []
+  m_pointsToDraw: []
 --- !u!1 &1016708260
 GameObject:
   m_ObjectHideFlags: 0
@@ -12504,6 +12505,25 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1528861050 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 31236884420004736, guid: f8d3a84677e69d14bbf39db6a1986ff8, type: 3}
+  m_PrefabInstance: {fileID: 31236884593062092}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1528861053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528861050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54191bcb8c207aa42b21ffdb611b8054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPoint: {x: -5.15, y: 0}
+  endPoint: {x: 5.15, y: 0}
 --- !u!1 &1537432512
 GameObject:
   m_ObjectHideFlags: 0
@@ -12940,6 +12960,7 @@ MonoBehaviour:
   spawnPos: {x: 0, y: 0, z: 0}
   hasActed: 0
   m_hitboxesToDraw: []
+  m_pointsToDraw: []
 --- !u!1 &1690319497
 GameObject:
   m_ObjectHideFlags: 0
@@ -13226,6 +13247,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 31236883292020581, guid: f8d3a84677e69d14bbf39db6a1986ff8, type: 3}
+      propertyPath: groundSegments.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 31236883292020581, guid: f8d3a84677e69d14bbf39db6a1986ff8, type: 3}
+      propertyPath: groundSegments.Array.data[0]
+      value: 
+      objectReference: {fileID: 1528861053}
     - target: {fileID: 31236883292020587, guid: f8d3a84677e69d14bbf39db6a1986ff8, type: 3}
       propertyPath: m_Name
       value: Small Brawlhaven
@@ -13353,7 +13382,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 5022602860645237092, guid: 066bbb48c0d3ac54783a84142536c6bb, type: 3}
   m_InferenceDevice: 3
-  m_BehaviorType: 1
+  m_BehaviorType: 0
   m_BehaviorName: BrawlOnes
   TeamId: 0
   m_UseChildSensors: 1

@@ -103,7 +103,15 @@ public class LegendAgent : Agent
     List<int> filteredDiscrete;
 
     // References to components
-    BrawlEnvController envController;
+    //public BrawlEnvController envController { get; private set; }
+    public BrawlEnvController envController {
+        get {
+            if (m_envController) return m_envController;
+            m_envController = transform.parent.GetComponentInParent<BrawlEnvController>();
+            return m_envController;
+        }
+    }
+    private BrawlEnvController m_envController;
     BrawlEnvController.AgentInfo m_agentInfo;
     Rigidbody2D m_rigidbody;
     ContactFilter2D m_contactFilter;
@@ -202,6 +210,7 @@ public class LegendAgent : Agent
 
     // Visual states
     public Hitbox[] m_hitboxesToDraw;
+    public CollisionCheckPoint[] m_pointsToDraw;
     private int m_moveFacingDirection;
     private bool flyingFast = false;
 
@@ -212,7 +221,7 @@ public class LegendAgent : Agent
         base.Initialize();
         m_brawlSettings = FindObjectOfType<BrawlSettings>();
 
-        envController = transform.parent.GetComponentInParent<BrawlEnvController>();
+        //envController = transform.parent.GetComponentInParent<BrawlEnvController>();
         m_graphicsTransform = transform.Find("Graphics");
         m_damageText = m_graphicsTransform.Find("Canvas").Find("DamageText").GetComponent<Text>();
         m_KOTrail = m_graphicsTransform.Find("KOTrail").GetComponent<ParticleSystem>();
@@ -700,13 +709,15 @@ public class LegendAgent : Agent
         bool sideMove = !neutralMove && !downKey && sideKey;
         bool hittingAnyMoveKey = lightMove || heavyMove || throwMove;
 
+        CompactMoveState cms = new CompactMoveState(m_grounded, heavyMove, neutralMove ? 0 : (downMove ? 1 : 2));
+        Move moveType = m_stateToMove[cms];
+
         //int cooldownOut = -1;
         if (!throwMove){
-            CompactMoveState cms = new CompactMoveState(m_grounded, heavyMove, neutralMove ? 0 : (downMove ? 1 : 2));
             if (!m_doingMove && hittingAnyMoveKey && stunFrames == 0 && spawnNoControlRemaining == 0)
-            { // check some sort of move cooldown here too...
-              // About to do a move
-                Move moveType = m_stateToMove[cms];
+            {
+                // check some sort of move cooldown here too...
+                // About to do a move
                 bool moveWorked = false;
                 if (m_grounded || m_aerial)
                 {
@@ -759,7 +770,8 @@ public class LegendAgent : Agent
         if (m_doingMove) {
             bool done = stunFrames != 0;
             if (!done){
-                done = currentMove.DoMove(action, this);
+                bool isHoldingMoveType = m_currentMoveType == moveType;
+                done = currentMove.DoMove(action, isHoldingMoveType, this);
             }
             if (done){
                 m_doingMove = false;
@@ -895,9 +907,10 @@ public class LegendAgent : Agent
     {
         m_hitboxesToDraw = null;
     }
-    public void SetHitboxesToDraw(Hitbox[] hitboxes, int moveFacingDirection){
+    public void SetHitboxesToDraw(Hitbox[] hitboxes, CollisionCheckPoint[] points, int moveFacingDirection){
         m_moveFacingDirection = moveFacingDirection;
         m_hitboxesToDraw = hitboxes;
+        m_pointsToDraw = points;
     }
 
     MoveManager GetMoveManager(Move move){        
@@ -1418,6 +1431,9 @@ public class LegendAgent : Agent
         /*Gizmos.color = m_teamColors[team];
         Gizmos.DrawWireSphere(transform.position + Vector3.up * 0.5f, 0.5f);*/
 
+        float envZ = envController ? envController.transform.position.z : 0f;
+        Vector3 envZVector = envZ * Vector3.forward;
+
         // Sprinting box
         if (m_sprinting){
             Gizmos.color = Color.cyan;
@@ -1426,23 +1442,35 @@ public class LegendAgent : Agent
 
         // Facing line
         Gizmos.color = Color.red;
-        Vector3 lineCenter = transform.position + Vector3.right * facingDirection;
+        Vector3 lineCenter = transform.position + Vector3.right * facingDirection + envZVector;
         Gizmos.DrawLine(lineCenter + Vector3.up, lineCenter + Vector3.down);
 
         // Hurtbox
         CapsuleCollider2D capsule = hurtboxCollider;
-        BrawlHitboxUtility.DrawCapsule2D((Vector2)transform.position + capsule.offset * 0.5f, capsule.size * 0.5f, 0f, Color.yellow);
+        BrawlHitboxUtility.DrawCapsule2D((Vector2)transform.position + capsule.offset * 0.5f, capsule.size * 0.5f, envZ, Color.yellow);
 
         // Hitboxes
         if (m_hitboxesToDraw != null){
-            Gizmos.color = Color.blue;
             foreach (Hitbox hitbox in m_hitboxesToDraw)
             {
                 Vector3 hitboxOffset = BrawlHitboxUtility.GetHitboxOffset(hitbox.xOffset, hitbox.yOffset);
                 hitboxOffset.x *= m_moveFacingDirection;
                 Vector3 hitboxPos = transform.position + hitboxOffset;
                 //Debug.Log(hitboxPos);
-                BrawlHitboxUtility.DrawHitbox(hitbox, hitboxPos, 0f);
+                BrawlHitboxUtility.DrawHitbox(hitbox, hitboxPos, envZ);
+            }
+        }
+
+        // Points
+        if (m_pointsToDraw != null){
+            Gizmos.color = Color.blue;
+            foreach (CollisionCheckPoint point in m_pointsToDraw)
+            {
+                Vector3 pointOffset = BrawlHitboxUtility.GetHitboxOffset(point.xOffset, point.yOffset);
+                pointOffset.x *= m_moveFacingDirection;
+                Vector3 pointPos = transform.position + pointOffset;
+                //Debug.Log(hitboxPos);
+                BrawlHitboxUtility.DrawCollisionCheckPoint(point, pointPos, envZ);
             }
         }
     }

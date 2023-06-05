@@ -30,6 +30,9 @@ MonoBehaviour:
     yOffset: 69
     width: 44
     height: 48
+  collisionCheckPoints:
+  - xOffset: 60
+    yOffset: 82
   frameChanges:
   - frame: 0
     casterPositionChange:
@@ -38,7 +41,7 @@ MonoBehaviour:
       y: 0
     casterVelocitySet:
       active: 1
-      magnitude: 2
+      magnitude: 8
       directionDeg: -45
     casterVelocitySetXY:
       activeX: 0

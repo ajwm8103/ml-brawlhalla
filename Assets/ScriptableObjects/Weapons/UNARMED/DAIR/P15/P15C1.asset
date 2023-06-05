@@ -18,6 +18,7 @@ MonoBehaviour:
   variableForce: 0
   fixedForce: 0
   hitboxes: []
+  collisionCheckPoints: []
   frameChanges:
   - frame: 0
     casterPositionChange:
@@ -26,7 +27,7 @@ MonoBehaviour:
       y: 0
     casterVelocitySet:
       active: 1
-      magnitude: 0.5
+      magnitude: 2
       directionDeg: -45
     casterVelocitySetXY:
       activeX: 0

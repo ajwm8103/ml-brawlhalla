@@ -23,7 +23,12 @@ MonoBehaviour:
   damageOverLifeOfHitbox: 0
   disableCasterGravity: 0
   disableHitGravity: 0
+  targetAllHitAgents: 0
   transitionOnInstantHit: 1
+  onHitVelocitySetActive: 0
+  onHitVelocitySetMagnitude: 0
+  onHitVelocitySetDirectionDeg: 0
+  onGroundNextPower: {fileID: 11400000, guid: 010df18259d0ed2419bacd7fd1939e8a, type: 2}
   onHitNextPower: {fileID: 11400000, guid: 3fc9388c16b1b464b804df87167def6c, type: 2}
   onMissNextPower: {fileID: 11400000, guid: fcefcd93ff24cd1418ea63e104bd36c2, type: 2}
   casts:
