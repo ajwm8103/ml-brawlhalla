@@ -63,8 +63,8 @@ public class TrainingAreaReplicator2D : MonoBehaviour
     {
         // check if running inference, if so, use the num areas set through the component,
         // otherwise, pull it from the academy
-        if (Academy.Instance.IsCommunicatorOn)
-            numAreas = Academy.Instance.NumAreas;
+        //if (Academy.Instance.IsCommunicatorOn)
+        //    numAreas = Academy.Instance.NumAreas;
 
         var rootNumAreas = Mathf.Pow(numAreas, 1.0f / 2.0f);
         m_GridSize.x = Mathf.CeilToInt(rootNumAreas);

@@ -35,4 +35,5 @@ behaviors:
       save_steps: 100000
       swap_steps: 25000
       team_change: 400000
-
+env_settings:
+  num_areas: 49
