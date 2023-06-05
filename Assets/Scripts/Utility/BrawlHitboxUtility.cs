@@ -24,6 +24,11 @@ public static class BrawlHitboxUtility
         return new Vector2(width, height) * s_pixelsToMeters;
     }
 
+    public static void DrawCollisionCheckPoint(CollisionCheckPoint point, Vector2 pos, float z){
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere((Vector3)pos + Vector3.forward * z, 0.2f);
+    }
+
     public static void DrawHitbox(Hitbox hitbox, Vector2 pos, float z){
         //Debug.Log(hitbox.xOffset);
         Gizmos.color = Color.red;
