@@ -120,7 +120,8 @@ public class Power {
             }
             if (!dealtPositionTargetExists){
                 // No target, so deal force instead
-                hitVector = new Vector3(Mathf.Cos(Mathf.Deg2Rad * powerData.hitAngleDeg), Mathf.Sin(Mathf.Deg2Rad * powerData.hitAngleDeg), 0f);
+                float hitAngleDeg = currentCast.castData.hitAngleDeg.HasValue ? currentCast.castData.hitAngleDeg.Value  : powerData.hitAngleDeg;
+                hitVector = new Vector3(Mathf.Cos(Mathf.Deg2Rad * hitAngleDeg), Mathf.Sin(Mathf.Deg2Rad * hitAngleDeg), 0f);
                 hitVector.x *= mm.moveFacingDirection;
             }
             

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f218bb52b74b0cd41bb21aecddaf72eb, type: 3}
+  m_Name: P27C2
+  m_EditorClassIdentifier: 
+  startupFrames: 0
+  attackFrames: 5
+  baseDamage: 16
+  variableForce: 60
+  fixedForce: 40
+  mustBeHeld: 0
+  hitboxes:
+  - xOffset: 43
+    yOffset: 41
+    width: 146
+    height: 100
+  - xOffset: 108
+    yOffset: 24
+    width: 126
+    height: 94
+  collisionCheckPoints: []
+  frameChanges: []

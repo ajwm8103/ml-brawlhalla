@@ -26,9 +26,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   unarmedWeapon: {fileID: 11400000, guid: dccc5d897b8c6ca428181a872209a748, type: 2}
-  unarmedNSig: {fileID: 0}
+  unarmedNSig: {fileID: 11400000, guid: 8e709858264c1dc47ae1d43112b9b144, type: 2}
   unarmedSSig: {fileID: 11400000, guid: 5799e983e7e5b9d4ab1c219de488f8d2, type: 2}
-  unarmedDSig: {fileID: 0}
+  unarmedDSig: {fileID: 11400000, guid: 4936e2e1ed6401449bb837df8ffb278c, type: 2}
   primaryWeapon: {fileID: 11400000, guid: 030075cc6ca7fe04da4d4d192f3d77f9, type: 2}
   primaryNSig: {fileID: 0}
   primarySSig: {fileID: 0}
