@@ -17,7 +17,39 @@ MonoBehaviour:
   baseDamage: 0
   variableForce: 0
   fixedForce: 0
+  hitAngleDeg:
+    v: 0
+    hasValue: 0
   mustBeHeld: 0
   hitboxes: []
   collisionCheckPoints: []
-  frameChanges: []
+  frameChanges:
+  - frame: 0
+    casterPositionChange:
+      active: 0
+      x: 0
+      y: 0
+    casterVelocitySet:
+      active: 0
+      magnitude: 0
+      directionDeg: 0
+    casterVelocitySetXY:
+      activeX: 0
+      magnitudeX: 0
+      activeY: 1
+      magnitudeY: 0
+    casterVelocityDampXY:
+      activeX: 0
+      dampX: 0
+      activeY: 0
+      dampY: 0
+    dealtPositionTarget:
+      active: 0
+      xOffset: 0
+      yOffset: 0
+    hurtboxPositionChange:
+      active: 0
+      xOffset: 0
+      yOffset: 0
+      width: 0
+      height: 0
