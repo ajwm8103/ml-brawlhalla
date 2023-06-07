@@ -28,6 +28,7 @@ MonoBehaviour:
   onHitVelocitySetActive: 0
   onHitVelocitySetMagnitude: 0
   onHitVelocitySetDirectionDeg: 0
+  enableFloorDrag: 1
   onGroundNextPower: {fileID: 0}
   onHitNextPower: {fileID: 0}
   onMissNextPower: {fileID: 11400000, guid: 89ccf84641c698045881d4151f0a91f7, type: 2}

@@ -28,6 +28,8 @@ public class PowerScriptableObject : ScriptableObject
     public bool onHitVelocitySetActive = false; // i.e. unarmed nair hit stops velocity
     public float onHitVelocitySetMagnitude = 0f;
     public float onHitVelocitySetDirectionDeg = 0f;
+    [Header("Enable Floor Drag")]
+    public bool enableFloorDrag = false;
     [Header("Instantly On Ground Collide")]
     public PowerScriptableObject onGroundNextPower;
     [Header("If Hit, or Instantly On Hit")]
@@ -129,11 +131,11 @@ public class Power {
             bool isInAttackFrames = currentCast.frameIdx < (currentCast.castData.startupFrames + currentCast.castData.attackFrames);
             bool inAttack = !inStartup && (isInAttackFrames || currentCast.castData.mustBeHeld);
             if (inStartup) {
-                agent.DoCastFrameChanges(cfch, mm);
+                agent.DoCastFrameChanges(cfch, powerData.enableFloorDrag, mm);
                 // Visuals
                 m_Agent.SetHitboxesToDraw();
             } else if (inAttack) {
-                agent.DoCastFrameChanges(cfch, mm);
+                agent.DoCastFrameChanges(cfch, powerData.enableFloorDrag, mm);
                 // Visuals
                 m_Agent.SetHitboxesToDraw(currentCast.castData.hitboxes, currentCast.castData.collisionCheckPoints, mm.moveFacingDirection);
 
