@@ -31,12 +31,13 @@ behaviors:
     keep_checkpoints: 5
     max_steps: 1000000000
     time_horizon: 1024
-    summary_freq: 8192
+    summary_freq: 16384
     self_play:
-      window: 30
+      save_steps: 1000000
+      team_change: 2000000
+      swap_steps: 50000
+      window: 40
       play_against_latest_model_ratio: 0.6
-      save_steps: 100000
-      swap_steps: 25000
-      team_change: 400000
+      initial_elo: 1200.0
 env_settings:
   num_areas: 49
