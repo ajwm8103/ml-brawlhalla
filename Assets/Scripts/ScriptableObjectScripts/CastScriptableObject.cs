@@ -12,6 +12,8 @@ public class CastScriptableObject : ScriptableObject
     public int baseDamage = 0;
     public float variableForce = 0;
     public float fixedForce = 0;
+    [Header("Hit Angle")]
+    public SN<float> hitAngleDeg = null; // right then counterclockwise
     [Header("Extra Data")]
     public bool mustBeHeld = false;
     public Hitbox[] hitboxes;
