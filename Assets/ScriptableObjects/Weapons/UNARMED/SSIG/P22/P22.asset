@@ -23,7 +23,13 @@ MonoBehaviour:
   damageOverLifeOfHitbox: 0
   disableCasterGravity: 0
   disableHitGravity: 0
+  targetAllHitAgents: 0
   transitionOnInstantHit: 0
+  onHitVelocitySetActive: 0
+  onHitVelocitySetMagnitude: 0
+  onHitVelocitySetDirectionDeg: 0
+  enableFloorDrag: 1
+  onGroundNextPower: {fileID: 0}
   onHitNextPower: {fileID: 0}
   onMissNextPower: {fileID: 0}
   casts:

@@ -812,7 +812,12 @@ public class LegendAgent : Agent
         hurtboxCollider.size = 2f * BrawlHitboxUtility.GetHurtboxSize(hpc.width, hpc.height);
     }
 
-    public void DoCastFrameChanges(CastFrameChangeHolder changes, MoveManager mm){
+    public void DoCastFrameChanges(CastFrameChangeHolder changes, bool enableFloorDrag, MoveManager mm){
+        if (enableFloorDrag)
+        {
+            m_velocity.x = Mathf.SmoothDamp(m_velocity.x, 0f, ref m_smoothXVel, smoothTimeX);
+        }
+
         if (changes == null){
             return;
         }
